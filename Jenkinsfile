@@ -23,7 +23,12 @@ pipeline {
         stage("Test") {
             steps {
                 sh '''
-                    -e ./build/index.html
+
+                   if[-e ./build/index.html]; then
+                        return 0
+                    else
+                        retur 1
+                    fi
                 '''
             }
         }
