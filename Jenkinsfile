@@ -26,8 +26,8 @@ pipeline {
                     image 'node:18-alpine'
                     reuseNode true
                 }
-            steps {
             }
+            steps {
                 sh '''
                     if [ -e ./build/index.html ]; then
                         echo "File exists."
