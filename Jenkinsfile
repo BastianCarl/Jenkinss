@@ -21,12 +21,12 @@ pipeline {
             }
         }
         stage("Test") {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
             steps {
-                agent {
-                    docker {
-                        image 'node:18-alpine'
-                        reuseNode true
-                    }
             }
                 sh '''
                     if [ -e ./build/index.html ]; then
