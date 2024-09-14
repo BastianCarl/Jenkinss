@@ -22,6 +22,12 @@ pipeline {
         }
         stage("Test") {
             steps {
+                agent {
+                    docker {
+                        image 'node:18-alpine'
+                        reuseNode true
+                    }
+            }
                 sh '''
                     if [ -e ./build/index.html ]; then
                         echo "File exists."
