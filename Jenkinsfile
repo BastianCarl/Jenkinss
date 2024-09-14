@@ -32,7 +32,7 @@ pipeline {
                     fi
                 '''
                 sh ''' 
-                    echo After return;
+                    npm test
                 '''
             }
         }
