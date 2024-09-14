@@ -25,11 +25,14 @@ pipeline {
                 sh '''
                     if [ -e ./build/index.html ]; then
                         echo "File exists."
-                        exit 0
+                        return 0
                     else
                         echo "File does not exist."
-                        exit 1
+                        return 1
                     fi
+                '''
+                sh ''' 
+                    echo After return;
                 '''
             }
         }
